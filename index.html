@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Reckon — Calculator</title>
+<meta name="description" content="Use Reckon, a free, simple online calculator for everyday addition, subtraction, multiplication, division, and percentages.">
   <meta name="google-adsense-account" content="ca-pub-7453582142608864">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +57,15 @@
   header{
     text-align:center;
   }
+  .site-nav{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    font-size:0.82rem;
+  }
+  a{color:var(--accent);}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
   header h1{
     font-size:1.15rem;
     font-weight:700;
@@ -66,24 +76,6 @@
     color:var(--text-dim);
     margin-top:4px;
   }
-
-  /* --- Ad slot styling: swap the inner placeholder div for your AdSense <ins> unit --- */
-  .ad-slot{
-    width:100%;
-    max-width:360px;
-    border:1px dashed var(--ad-border);
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--text-dim);
-    font-size:0.7rem;
-    letter-spacing:0.03em;
-    text-align:center;
-    padding:10px;
-  }
-  .ad-slot.top{ min-height:60px; }
-  .ad-slot.bottom{ min-height:90px; }
 
   .calc{
     width:100%;
@@ -159,7 +151,41 @@
     color:var(--text-dim);
     font-size:0.72rem;
     text-align:center;
-    max-width:360px;
+    max-width:720px;
+    line-height:1.7;
+  }
+  footer nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:8px;
+  }
+  main{
+    width:100%;
+    max-width:720px;
+    display:grid;
+    gap:20px;
+  }
+  .guide{
+    width:100%;
+    max-width:720px;
+    line-height:1.7;
+  }
+  .guide h2{
+    font-size:1.2rem;
+    margin:8px 0;
+  }
+  .guide h3{
+    font-size:1rem;
+    margin:14px 0 4px;
+  }
+  .guide p,.guide ul{
+    color:var(--text-dim);
+    font-size:0.9rem;
+  }
+  .guide ul{
+    padding-left:22px;
   }
 </style>
 </head>
@@ -167,16 +193,20 @@
 
   <header>
     <h1>Reckon</h1>
-    <p>A calculator, kept simple.</p>
+    <p>A free calculator for everyday arithmetic.</p>
   </header>
 
-  <!-- AD SLOT: top banner (e.g. 320x50 or responsive AdSense unit) -->
-  <div class="ad-slot top" id="ad-top">Ad space — top banner</div>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="#calculator">Calculator</a>
+    <a href="#guide">How to use it</a>
+    <a href="about.html">About</a>
+  </nav>
 
-  <div class="calc">
+  <main>
+  <section class="calc" id="calculator" aria-label="Calculator">
     <div class="display">
       <div class="prev" id="prev"></div>
-      <div class="curr" id="curr">0</div>
+      <div class="curr" id="curr" role="status" aria-live="polite" aria-atomic="true">0</div>
     </div>
     <div class="pad">
       <button class="clear" data-action="clear">AC</button>
@@ -203,12 +233,35 @@
       <button data-action="decimal">.</button>
       <button class="equals" data-action="equals">=</button>
     </div>
-  </div>
+  </section>
 
-  <!-- AD SLOT: bottom / in-feed unit -->
-  <div class="ad-slot bottom" id="ad-bottom">Ad space — bottom unit</div>
+  <section class="guide" id="guide">
+    <h2>How to use the Reckon calculator</h2>
+    <p>Reckon is a free, browser-based calculator for common arithmetic. Enter numbers with the on-screen buttons or your keyboard, choose an operation, enter the next number, and select equals to see the result. Use AC to clear and start again.</p>
 
-  <footer>Replace the dashed boxes above with your AdSense ad units once your site is approved.</footer>
+    <h3>Available operations</h3>
+    <ul>
+      <li>Addition (+), subtraction (−), multiplication (×), and division (÷).</li>
+      <li>Percent (%) converts the current number to its decimal equivalent; for example, 25% becomes 0.25.</li>
+      <li>Change the sign with ± or enter a decimal with the decimal point.</li>
+    </ul>
+
+    <h3>Keyboard shortcuts</h3>
+    <p>Use number keys and the decimal point to enter values. The +, −, *, and / keys select operations; Enter or = calculates, and Escape clears the calculator.</p>
+
+    <h3>About results</h3>
+    <p>Calculations are performed in your browser. Like most browser calculators, Reckon uses standard JavaScript number precision, so very large, very small, or repeating decimal results may be rounded for display. Do not use it where exact financial, medical, or other professional precision is required.</p>
+  </section>
+  </main>
+
+  <footer>
+    <nav aria-label="Information">
+      <a href="about.html">About Reckon</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    Reckon is a free calculator for everyday arithmetic. No account is required.
+  </footer>
 
 <script>
 (function(){
