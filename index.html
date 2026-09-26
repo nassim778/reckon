@@ -17,6 +17,8 @@
     --accent-dim:#c98c00;
     --text:#eae7e0;
     --text-dim:#8b8d97;
+    --display-text:#eae7e0;
+    --display-text-dim:#a6a8b0;
     --op-bg:#2f323c;
     --danger:#e8555a;
     --ad-border: rgba(234,231,224,0.18);
@@ -96,13 +98,17 @@
     border-radius:14px;
     padding:22px 18px 18px;
     margin-bottom:16px;
+    min-height:112px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
     text-align:right;
     overflow:hidden;
   }
   .display .prev{
     font-family:'JetBrains Mono', monospace;
     font-size:0.9rem;
-    color:var(--text-dim);
+    color:var(--display-text-dim);
     min-height:1.2em;
     white-space:nowrap;
     overflow:hidden;
@@ -111,8 +117,10 @@
   .display .curr{
     font-family:'JetBrains Mono', monospace;
     font-weight:600;
-    font-size:2.2rem;
-    color:var(--text);
+    font-size:clamp(1.35rem, 7vw, 2rem);
+    line-height:1.25;
+    font-variant-numeric:tabular-nums;
+    color:var(--display-text);
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
